@@ -2,12 +2,15 @@
 
 {% block content %}
 
-<p>Blog Post: {{ blogpost }}</p>
+<p style="font-family:Roboto; color:Blue; font-size: 20px;">Blog Post: {{ blogpost }}</p>
 <ul>
     <li>
-        <p>{{ blogpost.date_added|date:'M d, Y H:i'}}</p>
+        <p>{{ blogpost.date_added|date:'M d, Y H:i' }}</p>
         <p>{{ blogpost.blog_title|linebreaks }}</p>
         <p>{{ blogpost.text|linebreaks }}</p>
+        <p>
+            <a href="{% url 'blogs:edit_blogpost' blogpost.id %}">Edit blog post</a>
+        </p>
     </li>
 </ul>
 

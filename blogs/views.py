@@ -37,3 +37,21 @@ def new_blogpost(request):
     # Display a blank or invalid form.
     context = {'form': form}
     return render(request, 'blogs/new_blogpost.html', context)
+
+
+def edit_blogpost(request, blogpost_id):
+    """Edit an existing blogpost."""
+    blogpost = BlogPost.objects.get(id=blogpost_id)
+
+    if request.method != 'POST':
+        # Initial request; pre-fill form with the current blogpost.
+        form = BlogPostForm(instance=blogpost)
+    else:
+        # POST data submitted; process data.
+        form = BlogPostForm(instance=blogpost, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('blogs:blogpost', blogpost_id=blogpost.id)
+
+    context = {'blogpost': blogpost, 'form': form}
+    return render(request, 'blogs/edit_blogpost.html', context)
