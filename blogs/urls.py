@@ -9,4 +9,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     # Page that shows the blog entries.
     path('blogposts/', views.blogposts, name='blogposts'),
+    # Detail page for an individual blog post.
+    path('blogposts/<int:blogpost_id>/', views.blogpost, name='blogpost'),
+
 ]
