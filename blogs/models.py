@@ -11,5 +11,5 @@ class BlogPost(models.Model):
 
     def __str__(self):
         """Return a single representation of the model."""
-        template = '{0.blog_title} {0.text} '
+        template = '{0.blog_title}'
         return template.format(self)
