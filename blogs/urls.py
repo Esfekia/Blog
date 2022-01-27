@@ -11,5 +11,8 @@ urlpatterns = [
     path('blogposts/', views.blogposts, name='blogposts'),
     # Detail page for an individual blog post.
     path('blogposts/<int:blogpost_id>/', views.blogpost, name='blogpost'),
+    # Page for adding a new blog post.
+    path('new_blogpost/', views.new_blogpost, name='new_blogpost'),
+
 
 ]

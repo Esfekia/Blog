@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import BlogPost
-# Create your views here.
+from .forms import BlogPostForm
 
 
 def index(request):
@@ -20,3 +20,20 @@ def blogpost(request, blogpost_id):
     blogpost = BlogPost.objects.get(id=blogpost_id)
     context = {'blogpost': blogpost}
     return render(request, 'blogs/blogpost.html', context)
+
+
+def new_blogpost(request):
+    """Add a new blog post."""
+    if request.method != 'POST':
+        # No data submitted; create a blank form.
+        form = BlogPostForm()
+    else:
+        # POST data submitted; process data.
+        form = BlogPostForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('blogs:blogposts')
+
+    # Display a blank or invalid form.
+    context = {'form': form}
+    return render(request, 'blogs/new_blogpost.html', context)
