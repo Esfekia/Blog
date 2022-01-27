@@ -7,4 +7,6 @@ app_name = 'blogs'
 urlpatterns = [
     # Home page
     path('', views.index, name='index'),
+    # Page that shows the blog entries.
+    path('blogposts/', views.blogposts, name='blogposts'),
 ]
