@@ -1,11 +1,13 @@
 <p>
     <a href="{% url 'blogs:index' %}">Blog</a>-
     <a href="{% url 'blogs:blogposts' %}">Blog Posts</a>
-    {% if user.is_authenticatd %}
-    Hello, {{ user.username }}.
-    {% else %}
-    <a href="{% url 'users:login' %}">log in</a>
-    {% endif %}
+    {% if user.is_authenticated %}
+<p></p>
+Hello, {{ user.username }}.
+<a href="{% url 'users:logout' %}">Log out</a>
+{% else %}
+<a href="{% url 'users:login' %}">log in</a>
+{% endif %}
 
 </p>
 
