@@ -1,7 +1,14 @@
 {% extends "blogs/base.html" %}
+{% block page_header %}
 
-{% block content %}
-<p style="font-family:Roboto; color:Blue; font-size: 20px;">A blog space where you can blog about anything you like!
-</p>
+<div class -"jumbotron">
+    <h1 class="display-4">One blog to share them all.</h1>
 
-{% endblock content %}
+    <p class="lead"> Make your own blog space, and write about any topic you want.
+        Whether it is a newly found passion or a long time interest, share
+        what you have to say with the whole world.
+    </p>
+
+    <a class="btn btn-lg btn-primary" href="{% url 'users:register' %}" role="button">Register &raquo;</a>
+</div>
+{% endblock page_header %}
