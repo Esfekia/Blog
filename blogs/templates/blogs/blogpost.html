@@ -1,17 +1,18 @@
 {% extends 'blogs/base.html' %}
 
+{% block page_header %}
+<h3>{{blogpost}}</h3>
+{% endblock page_header %}
+
 {% block content %}
 
-<p style="font-family:Roboto; color:Blue; font-size: 20px;">Blog Post: {{ blogpost }}</p>
-<ul>
-    <li>
-        <p>{{ blogpost.date_added|date:'M d, Y H:i' }}</p>
-        <p>{{ blogpost.blog_title|linebreaks }}</p>
-        <p>{{ blogpost.text|linebreaks }}</p>
-        <p>
-            <a href="{% url 'blogs:edit_blogpost' blogpost.id %}">Edit blog post</a>
-        </p>
-    </li>
-</ul>
+<div class="card mb-3">
+    <h4 class="card-header">
+        {{ blogpost.date_added|date:'M d, Y H:i' }}
+        {{ blogpost.blog_title|linebreaks }}
+        {{ blogpost.text|linebreaks }}
 
+        <small><a href="{% url 'blogs:edit_blogpost' blogpost.id %}">Edit blog post (if it is yours)</a></small>
+    </h4>
+</div>
 {% endblock content %}
