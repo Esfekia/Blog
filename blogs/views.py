@@ -5,6 +5,8 @@ from django.http import Http404
 from .models import BlogPost
 from .forms import BlogPostForm
 
+# Create your views here.
+
 
 def index(request):
     """The home page for the Blog."""
