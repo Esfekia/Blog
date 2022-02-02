@@ -14,3 +14,5 @@ PART 3:
 PART 4:
 20-2. Stylish Blog: Use Bootstrap to style the Blog project you created in Chapter 19.
 
+PART 5:
+20-3. Live Blog: Deploy the Blog project you’ve been working on to Heroku. Make sure you set DEBUG to False, so users don’t see the full Django error pages when something goes wrong.
